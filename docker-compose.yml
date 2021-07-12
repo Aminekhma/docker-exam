@@ -1,0 +1,22 @@
+version: "3.3"  
+
+services:
+    worker:
+        build:
+            context: ./worker
+            dockerfile: Dockerfile
+        image: docker_worker
+        ports:
+            - "3000:3000"
+        volumes:
+            - .:/app/worker/
+        
+    planner:
+        build:
+            context: ./planner
+            dockerfile: Dockerfile
+        image: docker_planner
+        ports:
+            - "8080:8080"
+        volumes:
+            - .:/app/planner/
