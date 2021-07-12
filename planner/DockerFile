@@ -1,11 +1,12 @@
 FROM node:14
 
-COPY . ./app
-
 WORKDIR /app
+
+COPY package*.json ./
 
 RUN npm install
 
-EXPOSE 8080
+COPY . .
 
-CMD ["node", "main.js"]
+EXPOSE 3000
+CMD [ "node", "main.js" ]
